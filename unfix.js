@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name	Unfix
 // @description	Stop fixed/sticky elements leeching my valuable screen real estate!
-// @version	0.2
+// @version	0.2.1
 // @grant	none
 // ==/UserScript==
 
@@ -22,12 +22,15 @@ function unfix_element(e) {
 			unfix_element(e);
 		}
 	})
+
 	// Catch sneaky attempts to re-fix an element from js
 	const observer = new MutationObserver(function (muts) {
 		muts.forEach(function (mut) {
-			if (mut.type == 'attribute') {
-				unfix_element(mut.target);
-			}
+			unfix_element(mut.target);
 		})
 	})
+
+	observer.observe(document.body, {
+		subtree: true, childList: true, attributes: true
+	});
 })();
