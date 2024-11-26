@@ -1,17 +1,25 @@
 // ==UserScript==
 // @name	Unfix
 // @description	Stop fixed/sticky elements leeching my valuable screen real estate!
-// @version	0.2.1
+// @version	0.2.2
 // @grant	none
 // ==/UserScript==
 
 function unfix_element(e) {
+	if (e.nodeType != Node.ELEMENT_NODE) {
+		return
+	}
+	var newpos
 	switch (getComputedStyle(e).position) {
 	case 'fixed':
-		e.style.setProperty('position', 'absolute', 'important');
+		newpos = 'absolute'
 		break;
 	case 'sticky':
-		e.style.setProperty('position', 'relative', 'important');
+		newpos = 'relative'
+	}
+	if (newpos) {
+//		console.debug('setting ' + e.tagName + ' to ' + newpos)
+		e.style.setProperty('position', newpos, 'important');
 	}
 }
 
@@ -25,8 +33,16 @@ function unfix_element(e) {
 
 	// Catch sneaky attempts to re-fix an element from js
 	const observer = new MutationObserver(function (muts) {
+//		console.dir(muts)
 		muts.forEach(function (mut) {
-			unfix_element(mut.target);
+			switch (mut.type) {
+			case 'attributes':
+				unfix_element(mut.target); // if (mut.attributeName == 'style') ?
+				mut.target.childNodes.forEach(unfix_element) // recurse deeper?
+				break;
+			case 'childList':
+				mut.addedNodes.forEach(unfix_element)
+			}
 		})
 	})
 
