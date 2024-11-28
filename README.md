@@ -29,21 +29,38 @@ Why write/use yet another userscript?
 -------------------------------------
 
 There are other extensions and userscripts available to do something similar,
-but they variously:
+but:
 
-- Just don't work, for sometimes mysterious reasons
-- Entirely destroy any elements with the offending style (tempting, but
-  sometimes I do want to see the navbar, just **only at the top of the page**)
-- Do the right thing initially but fail to account for scripts that inject
-  new elements or alter existing ones after the extension/script is done
-  checking (this is common with menubars that disappear when you scroll down
-  and peer back in when you scroll up, so when scrolling around you have to
-  over-scroll up, then scroll down a touch to nudge the menubar back in,
-  ***agh***)
+<!-- github pls give gfm definition lists! -->
+<dl>
+<dt>
+<a href="https://alisdair.mcdiarmid.org/kill-sticky-headers/">Kill Sticky</a>
+and friends, <a href="https://addons.mozilla.org/en-US/firefox/addon/nuke-position-fixed">
+NUKE position:fixed</a>
+</dt>
+<dd>
+Entirely destroy any elements with the offending style (tempting, but
+sometimes I do want to see the navbar, just <strong>only at the top of the
+page</strong>)
+</dd>
+<dt>
+<a href="https://greasyfork.org/en/scripts/35593-unstick">unstick</a>
+</dt>
+<dd>
+Does the right thing initially but fails to account for scripts that add new
+elements or alter existing ones after the extension/script is done checking
+(this is common with menubars that disappear when you scroll down and peer
+back in when you scroll up, so when scrolling around you have to over-scroll
+up, then scroll down a touch to nudge the menubar back in,
+<em><strong>agh</strong></em>)
+</dd>
+<dd>
+With credit to unstick, since it inspired this
+</dd>
+</dl>
 
 This one tries to Do the Right Thing&trade; reliably, without breaking or
-losing any elements on a page. It still doesn't always work, but manages
-~90% of the time.
+losing any elements on a page. It should work
 
 --------------------------------------------------------------------------
 
