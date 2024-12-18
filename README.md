@@ -31,7 +31,6 @@ Why write/use yet another userscript?
 There are other extensions and userscripts available to do something similar,
 but:
 
-<!-- github pls give gfm definition lists! -->
 <dl>
 <dt>
 <a href="https://alisdair.mcdiarmid.org/kill-sticky-headers/">Kill Sticky</a>
