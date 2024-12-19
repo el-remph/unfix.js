@@ -3,7 +3,10 @@
 // @description	Stop fixed/sticky elements leeching my valuable screen real estate!
 // @author	Remph
 // @license	GPL-3.0-or-later
-// @version	0.2.4
+// @version	0.2.4a
+// @include	*
+// @namespace	https://git.sr.ht/~remph/unfix.js
+// @homepageURL	https://git.sr.ht/~remph/unfix.js
 // @supportURL	https://git.sr.ht/~remph/unfix.js
 // @downloadURL	https://git.sr.ht/~remph/unfix.js/blob/master/unfix.user.js
 // @updateURL	https://git.sr.ht/~remph/unfix.js/blob/master/unfix.user.js
